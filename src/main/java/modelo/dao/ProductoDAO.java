@@ -30,7 +30,7 @@ public class ProductoDAO {
 	}
 
 	public List<Producto> obtenerProductos() {
-		return this.em.createQuery("FROM Producto", Producto.class).getResultList();
+		return this.em.createQuery("SELECT p FROM Producto p", Producto.class).getResultList();
 	}
 
 	public boolean verificarDisponibilidad(Producto producto) {
@@ -65,7 +65,7 @@ public class ProductoDAO {
 	public Producto buscar(String nombre) {
 		if (nombre == null) return null;
 		try {
-			return this.em.createQuery("FROM Producto p WHERE p.nombre = :nombre", Producto.class)
+			return this.em.createQuery("SELECT p FROM Producto p WHERE p.nombre = :nombre", Producto.class)
 				.setParameter("nombre", nombre)
 				.getSingleResult();
 		} catch (Exception e) {

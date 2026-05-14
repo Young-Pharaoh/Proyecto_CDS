@@ -43,7 +43,7 @@ public class UsuarioDAO {
 	
 	public Usuario getUsuarioPorCorreo(String correo) {
 	    try {
-	        return this.em.createQuery("FROM Usuario u WHERE u.correo = :correo", Usuario.class)
+			return this.em.createQuery("SELECT u FROM Usuario u WHERE u.correo = :correo", Usuario.class)
 	                .setParameter("correo", correo)
 	                .getSingleResult();
 	    } catch (Exception e) {
@@ -52,7 +52,7 @@ public class UsuarioDAO {
 	}
 	
 	public List<Usuario> leerUsuarios() {
-		return this.em.createQuery("FROM Usuario", Usuario.class).getResultList();
+		return this.em.createQuery("SELECT u FROM Usuario u", Usuario.class).getResultList();
 	}
 	
 	

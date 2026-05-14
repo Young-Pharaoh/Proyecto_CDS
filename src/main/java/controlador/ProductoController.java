@@ -32,7 +32,7 @@ public class ProductoController extends HttpServlet {
 		// 1. obtener parametros
 		int id  = Integer.parseInt(req.getParameter("id"));
 		// 2. hablar con el modelo
-		Producto prod = ProductoDAO.obtenerDetalles(id);
+		Producto prod = ProductoDAO.getProductoDAO().obtenerDetalles(id);
 		// 3. llamar a la vista
 		req.setAttribute("producto", prod);
 		req.getRequestDispatcher("jsp/detalleproducto.jsp").forward(req, resp);

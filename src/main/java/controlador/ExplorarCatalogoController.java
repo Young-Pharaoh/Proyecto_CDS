@@ -51,7 +51,7 @@ public class ExplorarCatalogoController extends HttpServlet {
 
 		// 1. obtener parametros
 		// 2. hablar con el modelo
-		List<Producto> listaProductos = ProductoDAO.obtenerProductos();
+		List<Producto> listaProductos = ProductoDAO.getProductoDAO().obtenerProductos();
 		// 3. llamar a la vista
 		req.setAttribute("productos", listaProductos);
 		req.getRequestDispatcher("jsp/pantallacatalogo.jsp").forward(req, resp);
@@ -64,7 +64,7 @@ public class ExplorarCatalogoController extends HttpServlet {
 
 		System.out.println(nombre);
 		// 2. hablar con el modelo
-		Producto productoBuscado = ProductoDAO.buscar(nombre);
+		Producto productoBuscado = ProductoDAO.getProductoDAO().buscar(nombre);
 
 		// 3. llamar a la vista
 		if(productoBuscado == null) {
