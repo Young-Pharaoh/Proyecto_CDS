@@ -110,7 +110,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 			<p class="error-message">${error}</p>
 		</c:if>
 
-		<form action="/Avance2/usuarioController?accion=crear" method="post">
+		<form action="/usuarioController?accion=crear" method="post">
 			<div class="form-group">
 				<label for="nombre">Nombre</label> 
 				<input type="text" id="nombre" name="nombre" required placeholder="Su nombre">
@@ -135,7 +135,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 		</form>
 
 		<div class="footer-link">
-			<p>¿Ya tienes cuenta? <a href="/Avance2/jsp/loginVista.jsp">Inicia sesión aquí</a></p>
+			<p>¿Ya tienes cuenta? <a href="/jsp/loginVista.jsp">Inicia sesión aquí</a></p>
 		</div>
 	</div>
 </body>

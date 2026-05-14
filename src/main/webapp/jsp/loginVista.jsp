@@ -116,7 +116,7 @@ input[type="email"]:focus, input[type="password"]:focus {
 			<p class="success-message">${mensaje}</p>
 		</c:if>
 
-		<form action="/Avance2/loginController?accion=iniciar" method="post">
+		<form action="/loginController?accion=iniciar" method="post">
 			<div class="form-group">
 				<label for="correo">Correo</label> <input type="email" id="correo"
 					name="correo" required placeholder="ejemplo@correo.com">
@@ -134,7 +134,7 @@ input[type="email"]:focus, input[type="password"]:focus {
 		</form>
 
 		<div class="footer-link">
-			<p>¿No tienes cuenta? <a href="/Avance2/jsp/registroVista.jsp">Regístrate aquí</a></p>
+			<p>¿No tienes cuenta? <a href="jsp/registroVista.jsp">Regístrate aquí</a></p>
 		</div>
 	</div>
 </body>
