@@ -14,7 +14,7 @@ RUN sed -i 's|localhost:3306|db:3306|g' \
 RUN mvn clean package -DskipTests
 
 # Stage 2: Runtime
-FROM tomcat:10.1-jdk21-temurin-alpine
+FROM tomcat:10.1-jdk21
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=build /app/target/ROOT.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
