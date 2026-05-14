@@ -2,225 +2,106 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Detalles de Producto</title>
-<style>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-
-	body {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-		background-color: #ffffff;
-		color: #333;
-		line-height: 1.6;
-	}
-
-	. container {
-		max-width:  1000px;
-		margin: 0 auto;
-		padding: 40px 20px;
-	}
-
-	. back-link {
-		display: inline-block;
-		margin-bottom: 30px;
-		color: #0066cc;
-		text-decoration: none;
-		font-size: 14px;
-		font-weight:  500;
-	}
-
-	.back-link:hover {
-		text-decoration:  underline;
-	}
-
-	. product-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 40px;
-		align-items: start;
-	}
-
-	.product-image {
-		background-color: #f5f5f5;
-		border-radius: 8px;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.product-image img {
-		width: 500px;
-		height: auto;
-		object-fit: cover;
-	}
-
-	.product-details h1 {
-		font-size: 32px;
-		margin-bottom: 20px;
-		color: #1a1a1a;
-		font-weight: 700;
-	}
-
-	.product-price {
-		font-size: 28px;
-		font-weight: 700;
-		color:  #059669;
-		margin-bottom:  30px;
-	}
-
-	.product-info {
-		margin-bottom: 30px;
-	}
-
-	.info-row {
-		display: flex;
-		justify-content: left;
-		padding: 16px 0;
-		border-bottom: 1px solid #e5e5e5;
-	}
-
-	.info-row:last-child {
-		border-bottom: none;
-	}
-
-	.info-label {
-		font-weight: 600;
-		color: #666;
-		min-width: 150px;
-	}
-
-	. info-value {
-		color: #1a1a1a;
-		text-align: right;
-		flex: 1;
-	}
-
-	.product-description {
-		margin-bottom: 30px;
-	}
-
-	.product-description h3 {
-		font-size: 16px;
-		font-weight: 600;
-		margin-bottom: 12px;
-		color: #1a1a1a;
-	}
-
-	.product-description p {
-		color: #555;
-		line-height: 1.7;
-	}
-
-	.availability {
-		padding: 12px 16px;
-		border-radius:  6px;
-		margin-bottom: 30px;
-		font-size: 14px;
-		font-weight: 500;
-	}
-
-	.availability.in-stock {
-		background-color: #dcfce7;
-		color:  #166534;
-	}
-
-	. availability.out-of-stock {
-		background-color: #fee2e2;
-		color:  #991b1b;
-	}
-
-
-	.divider {
-		height: 1px;
-		background-color:  #e5e5e5;
-		margin: 30px 0;
-	}
-
-	@media (max-width: 768px) {
-		.product-grid {
-			grid-template-columns: 1fr;
-			gap: 30px;
-		}
-
-		. product-details h1 {
-			font-size: 24px;
-		}
-
-		. product-price {
-			font-size: 24px;
-		}
-
-		.info-row {
-			flex-direction: column;
-			gap: 8px;
-		}
-
-		. info-value {
-			text-align: left;
-		}
-
-	}
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${producto.nombre}</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css" />
 </head>
 <body>
-	<div class="container">
+    <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation">
+      <div class="container">
+        <a href="ExplorarCatalogoController?ruta=verListaProductos" class="navbar-brand">Casita musical TALF</a>
+        <ul class="navbar-nav">
+          <li><a href="ExplorarCatalogoController?ruta=verListaProductos">Productos</a></li>
+          <li class="nav-cart">
+            <a href="CarritoController?ruta=verCarrito">
+              Carrito
+            </a>
+          </li>
+          <li><a href="loginController?accion=solicitar">Cerrar sesión</a></li>
+        </ul>
+      </div>
+    </nav>
 
-		<div class="product-grid">
-			<div class="product-image">
-				<img src="img/${producto.imagen}" alt="${producto. nombre}">
-			</div>
+    <!-- Main Content -->
+    <main>
+      <!-- Breadcrumb Navigation -->
+      <div class="container">
+        <nav>
+          <ul class="breadcrumb">
+            <li><a href="ExplorarCatalogoController?ruta=verListaProductos">Productos</a></li>
+            <li aria-current="page">
+              ${producto.nombre}
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-			<div class="product-details">
-				<h1>${producto.nombre}</h1>
-				
-				<div class="product-price">${producto.precio}</div>
+      <!-- Product Detail Section -->
+      <section class="container">
+        <article class="product-detail">
+          <!-- Product Images -->
+          <div class="product-images">
+            <img
+              src="${pageContext.request.contextPath}/img/${producto.imagen}"
+              class="product-image-main"
+              alt="${producto.nombre}"
+            />
+          </div>
 
-				<div class="product-info">
-					<div class="info-row">
-						<div class="info-label">ID Producto</div>
-						<div class="info-value">${producto.idProducto}</div>
-					</div>
-					<div class="info-row">
-						<div class="info-label">Condición</div>
-						<div class="info-value">${producto.condicion}</div>
-					</div>
-					<div class="info-row">
-						<div class="info-label">Disponibilidad</div>
-						<div class="info-value">${producto.disponibilidad}</div>
-					</div>
-				</div>
+          <!-- Product Information -->
+          <div class="product-info">
+            <h1>${producto.nombre}</h1>
+            <p class="product-price">$${producto.precio}</p>
 
-				<div class="divider"></div>
+            <div class="product-description">
+              <p>
+                ${producto.descripcion}
+              </p>
+              <br>
+              <p>
+                <strong>Condición:</strong> <c:out value="${producto.condicion ? 'Nuevo' : 'Usado'}"/>
+              </p>
+              <p>
+                <strong>Disponibilidad:</strong> ${producto.disponibilidad}
+              </p>
+            </div>
 
-				<div class="product-description">
-					<h3>Descripción</h3>
-					<p>${producto.descripcion}</p>
-				</div>
+            <!-- Product Actions -->
+            <form action="CarritoController?ruta=agregarAlCarrito" method="POST">
+              <input type="hidden" name="productoId" value="${producto.idProducto}">
+              <div class="product-actions">
+                <div class="quantity-selector">
+                  <label for="quantity">Cantidad:</label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    name="cantidad"
+                    class="form-input"
+                    value="1"
+                    min="1"
+                    max="10"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Agregar al Carrito
+                </button>
+              </div>
+            </form>
+          </div>
+        </article>
+      </section>
+    </main>
 
-				<div class="availability in-stock">
-					✓ Disponible para compra
-				</div>
-
-			</div>
-		</div>
-	</div>
-	
-	<div style="margin: 40px;">
-	<form action="CarritoController?ruta=agregarAlCarrito" method="POST">
-		<input type="text" name="cantidad" value="1" style="width: 50px; text-align: center;">
-		<input type="hidden" name="productoId" value="${producto.idProducto}">
-		<input type="submit" value="Agregar al Carrito">
-	</form>
-	</div>
-	
-	
-	
+	<!-- Footer
+    <footer>
+      <div class="container">
+        <p>&copy;  All rights reserved.</p>
+      </div>
+    </footer>
+    -->
 </body>
 </html>
