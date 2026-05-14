@@ -15,7 +15,7 @@ Una aplicación web de comercio electrónico de discos de vinilo construida con 
 
 ### Requisitos Previos
 
-- Tener instalados [Docker](https://docs.docker.com/get-docker/) y [Docker Compose](https://docs.docker.com/compose/install/).
+- Tener instalados [Git](https://git-scm.com/install/), [Docker](https://docs.docker.com/get-docker/) y [Docker Compose](https://docs.docker.com/compose/install/).
 
 ### Pasos
 
