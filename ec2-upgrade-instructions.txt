@@ -1,0 +1,17 @@
+How to upgrade your EC2 Instance Type (increase RAM):
+
+1. Stop the Instance (do not terminate it):
+   - Go to the AWS EC2 Console.
+   - Select your instance (t3.micro).
+   - Click "Instance state" > "Stop instance". Wait for it to completely stop.
+
+2. Change the Instance Type:
+   - With the stopped instance selected, click "Actions" > "Instance settings" > "Change instance type".
+   - In the drop-down menu, select a new instance type with more RAM (e.g., t3.small for 2GB or t3.medium for 4GB).
+   - Click "Apply".
+
+3. Start the Instance:
+   - Click "Instance state" > "Start instance".
+
+Note: Stopping and starting the instance will give it a new Public IP address unless you are using an Elastic IP. You will need to use the new IP.
+
