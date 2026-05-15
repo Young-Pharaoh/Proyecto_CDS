@@ -26,7 +26,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color:  #f5f5f5;
             color: #333;
-            padding: 20px;
         }
 
         div {
