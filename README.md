@@ -21,7 +21,7 @@ Una aplicación web de comercio electrónico de discos de vinilo construida con 
 
 ```bash
 # 1. Clonar el repositorio (si aún no lo has hecho)
-git clone <url-del-repo>
+git clone https://github.com/Young-Pharaoh/Proyecto_CDS.git
 cd Proyecto_CDS
 
 # 2. Construir e iniciar todos los servicios
