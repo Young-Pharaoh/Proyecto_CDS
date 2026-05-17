@@ -25,7 +25,7 @@ git clone <url-del-repo>
 cd Proyecto_CDS
 
 # 2. Construir e iniciar todos los servicios
-docker compose up -d
+docker compose up --build --force-recreate
 
 # 3. Abrir la aplicación en el navegador
 #    http://localhost:8080
