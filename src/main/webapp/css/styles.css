@@ -785,3 +785,10 @@ footer a {
 footer a:hover {
   color: var(--color-primary);
 }
+.btn-continue{
+  color: white;
+}
+
+.btn-cart{
+  color: white;
+}
